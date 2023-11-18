@@ -1,0 +1,18 @@
+Frontend:
+React dom
+React.js
+React Router
+Axios
+Fetch
+Bootstrap
+Font Awesome
+
+Backend:
+Node.js
+Express.js
+PG
+PG-format
+Dotenv
+Cors
+JWT
+bycrypt
