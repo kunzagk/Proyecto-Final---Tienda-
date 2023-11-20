@@ -1,0 +1,45 @@
+//Post /usuarios
+request:
+    Payload: {
+        "email": "correo_electronico",
+        "password": "contrasena"
+      }
+response:
+    Código 200 (OK)
+    Código 400 (Bad Request)
+      
+//Post /login
+request:
+    Payload: {
+        "email": "correo_electronico",
+        "password": "contrasena"
+      }
+response:
+    Código 200 (OK)
+    Código 400 (Bad Request)
+
+//GET /productos
+response:
+    Código 200 (OK)
+
+//GET /productos/:product_id
+response:
+    Código 200 (OK)
+
+//Post /pedidos
+request:
+    Payload:{
+        "username_id": "ID_del_usuario",
+        "name": "nombre_del_producto",
+        "price": "precio_del_producto"
+      }
+response:
+    Código 200 (OK)
+    Código 400 (Bad Request)
+
+//GET /pedidos/usuario/:username_id
+response:
+    Código 200 (OK)
+    Código 400 (Bad Request)
+
+    
