@@ -13,16 +13,15 @@ function Navigation() {
 
   const { carrito } = useContext(MyContext);
 
+  const navbarStyle = {
+    backgroundColor: "#000000"
+  };
+
   return (
-    <Navbar expand="lg" bg="danger">
+    <Navbar expand="lg" style={navbarStyle}>
       <Container>
-        <Navbar.Brand>
-          <NavLink to="/" className="text-white text-decoration-none">
-            🍕Pizzanime
-          </NavLink>
-        </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
-          <Nav>
+          <Nav className = "mx-auto">
             <NavLink to="/" className={isActiveLink}>Home</NavLink>
             <NavLink to="/registrarte" className={isActiveLink}>Registrarte</NavLink>
             <NavLink to="/iniciar-sesion" className={isActiveLink}>Iniciar Sesión</NavLink>
