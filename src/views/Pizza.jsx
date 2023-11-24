@@ -55,7 +55,7 @@ function Pizza() {
           </Card>
         </div>
       </div>
-    </>  
+    </>
   );
 }
 

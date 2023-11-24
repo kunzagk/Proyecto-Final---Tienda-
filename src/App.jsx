@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navbar";
 import Home from "./views/Home";
+import Tienda from "./views/Tienda";
 import Pizza from "./views/Pizza";
 import Carrito from "./views/Carrito";
 import MyContext from "./contexts/MyContext";
@@ -44,6 +45,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/carrito" element={<Carrito />} />
+          <Route path="/tienda" element={<Tienda />} />
           <Route path="/pizza/:id" element={<Pizza />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
