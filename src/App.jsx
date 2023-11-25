@@ -3,17 +3,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navbar";
 import Home from "./views/Home";
-import Tienda from "./views/Tienda";
-import Pizza from "./views/Pizza";
+import Ropa from "../src/views/ropa";
 import Carrito from "./views/Carrito";
 import MyContext from "./contexts/MyContext";
 import NotFound from "./views/NotFound";
+import Login from './views/Login';
 
 function App() {
   const [data, setData] = useState([]);
   const [carrito, setCarrito] = useState([]);
   const [totalPedido, setTotalPedido] = useState(0);
-  const pizzaJson = "/pizzas.json";
+  const ropaJson = "/ropa.json";
 
   const getData = async (url) => {
     try {
@@ -26,7 +26,7 @@ function App() {
   };
 
   useEffect(() => {
-    getData(pizzaJson);
+    getData(ropaJson);
   }, []);
 
   const allState = {
@@ -45,8 +45,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/carrito" element={<Carrito />} />
-          <Route path="/tienda" element={<Tienda />} />
-          <Route path="/pizza/:id" element={<Pizza />} />
+          <Route path="/ropa/:id" element={<Ropa />} />
+          <Route path="/iniciar-sesion" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

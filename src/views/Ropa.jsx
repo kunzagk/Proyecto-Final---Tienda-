@@ -4,50 +4,52 @@ import { Card, Button } from "react-bootstrap";
 import MyContext from "../contexts/MyContext";
 import Header from "../components/Header";
 
-function Pizza() {
+function Ropa() {
   const { id } = useParams();
   const { data, carrito, setCarrito } = useContext(MyContext);
-  const pizza = data.find((pizza) => pizza.id === id);
+  const ropa = data.find((item) => item.id === id);
 
-  if (!pizza) {
-    return <div>Pizza no encontrada</div>;
+  if (!ropa) {
+    return <div>Producto no encontrado</div>;
   }
 
   const handleAddToCart = () => {
-    const existingPizza = carrito.find((item) => item.id === pizza.id);
+    const existingRopa = carrito.find((item) => item.id === ropa.id);
 
-    if (existingPizza) {
+    if (existingRopa) {
       setCarrito((prevCarrito) =>
         prevCarrito.map((item) =>
-          item.id === pizza.id ? { ...item, cantidad: item.cantidad + 1 } : item
+          item.id === ropa.id ? { ...item, cantidad: item.cantidad + 1 } : item
         )
       );
     } else {
-      setCarrito((prevCarrito) => [...prevCarrito, { ...pizza, cantidad: 1 }]);
+      setCarrito((prevCarrito) => [...prevCarrito, { ...ropa, cantidad: 1 }]);
     }
   };
 
   return (
     <>
-      <Header/>
+      <Header />
       <div className="d-flex m-5">
         <div className="w-50">
-          <img src={pizza.img} alt={pizza.name} style={{ width: "100%", height: "70%"}} />
+          <img src={ropa.img} alt={ropa.name} style={{ width: "100%", height: "70%"}} />
         </div>
         <div className="w-50">
           <Card style={{ maxWidth: "400px" }}>
             <Card.Body>
-              <Card.Title className="text-capitalize">{pizza.name}</Card.Title>
-              <Card.Text>{pizza.desc}</Card.Text>
-              <h4>Ingredientes:</h4>
-              <ul>
-                {pizza.ingredients.map((ingredient) => (
-                  <li key={ingredient}>🍕{ingredient}</li>
-                ))}
-              </ul>
+              <Card.Title className="text-capitalize">{ropa.name}</Card.Title>
+              <Card.Text>{ropa.desc}</Card.Text>
+              <h4>Detalles:</h4>
+              {ropa.details && (
+                <ul>
+                  {ropa.details.map((detail) => (
+                    <li key={detail}>👕{detail}</li>
+                  ))}
+                </ul>
+              )}
             </Card.Body>
             <Card.Footer className="d-flex justify-content-between">
-              <h3>Precio: ${pizza.price}</h3>
+              <h3>Precio: ${ropa.price}</h3>
               <Button variant="danger" onClick={handleAddToCart}>
                 Agregar al carrito
               </Button>
@@ -59,4 +61,4 @@ function Pizza() {
   );
 }
 
-export default Pizza;
+export default Ropa;
