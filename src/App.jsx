@@ -9,6 +9,8 @@ import MyContext from "./contexts/MyContext";
 import NotFound from "./views/NotFound";
 import Login from './views/Login';
 import Tienda from "./views/Tienda";
+import Registrarte from './views/Registrarte';
+
 
 function App() {
   const [data, setData] = useState([]);
@@ -49,6 +51,7 @@ function App() {
           <Route path="/ropa/:id" element={<Ropa />} />
           <Route path="/iniciar-sesion" element={<Login />} />
           <Route path="/tienda" element={<Tienda />} />
+          <Route path="/registrarte" element={<Registrarte />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
