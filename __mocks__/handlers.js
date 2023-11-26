@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 import mockUser from './mockUser';
 
-const handlers = [
+export const handlers = [
   // Intercepta la solicitud de inicio de sesión
   rest.post('/api/login', (req, res, ctx) => {
     const { email, password } = req.body;
@@ -19,7 +19,5 @@ const handlers = [
       );
     }
   }),
-  // Puedes agregar más manejadores para otras solicitudes aquí
-];
-
-export { handlers };
+  // Aquí puedes agregar más manejadores para otras solicitudes
+]

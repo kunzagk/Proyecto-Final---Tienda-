@@ -40,9 +40,9 @@ function Ropa() {
               <Card.Title className="text-capitalize">{ropa.name}</Card.Title>
               <Card.Text>{ropa.desc}</Card.Text>
               <h4>Detalles:</h4>
-              {ropa.details && (
+              {ropa.ingredients && (
                 <ul>
-                  {ropa.details.map((detail) => (
+                  {ropa.ingredients.map((detail) => (
                     <li key={detail}>👕{detail}</li>
                   ))}
                 </ul>

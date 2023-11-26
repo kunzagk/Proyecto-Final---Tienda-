@@ -9,20 +9,20 @@ function Tienda() {
   const navigate = useNavigate();
 
   const handleVerMasClick = (id) => {
-    navigate(`/pizza/${id}`);
+    navigate(`/ropa/${id}`);
   };
 
-  const handleAddToCart = (pizza) => {
-    const enCarritoPizza = carrito.find((item) => item.id === pizza.id);
+  const handleAddToCart = (ropa) => {
+    const enCarritoRopa = carrito.find((item) => item.id === ropa.id);
 
-    if (enCarritoPizza) {
+    if (enCarritoRopa) {
       setCarrito((prevCarrito) =>
         prevCarrito.map((item) =>
-          item.id === pizza.id ? { ...item, cantidad: item.cantidad + 1 } : item
+          item.id === ropa.id ? { ...item, cantidad: item.cantidad + 1 } : item
         )
       );
     } else {
-      setCarrito((prevCarrito) => [...prevCarrito, { ...pizza, cantidad: 1 }]);
+      setCarrito((prevCarrito) => [...prevCarrito, { ...ropa, cantidad: 1 }]);
     }
   };
 
@@ -31,26 +31,26 @@ function Tienda() {
       <Header />
       <Container>
         <Row className="justify-content-center">
-          {data.map((pizza) => (
-            <Col key={pizza.id} xs="12" sm="6" md="4" lg="3" className="mb-4">
+          {data.map((ropa) => (
+            <Col key={ropa.id} xs="12" sm="6" md="4" lg="3" className="mb-4">
               <Card style={{ width: "100%" }}>
-                <Card.Img variant="top" src={pizza.img} alt={pizza.name} />
+                <Card.Img variant="top" src={ropa.img} alt={ropa.name} />
                 <Card.Body>
-                  <h4 className="text-capitalize text-center">{pizza.name}</h4>
+                  <h4 className="text-capitalize text-center">{ropa.name}</h4>
                   <h5>Ingredientes:</h5>
                   <Card.Text>
                     <ul className="list-unstyled text-align">
-                      {pizza.ingredients.map((ingredient) => (
-                        <li key={ingredient}>🍕{ingredient}</li>
+                      {ropa.ingredients.map((ingredient) => (
+                        <li key={ingredient}>👕{ingredient}</li>
                       ))}
                     </ul>
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                  <h4 className="text-center mb-3">Precio: ${pizza.price}</h4>
+                  <h4 className="text-center mb-3">Precio: ${ropa.price}</h4>
                   <div className="d-flex justify-content-between">
-                    <Button variant="primary" onClick={() => handleVerMasClick(pizza.id)}>Ver más 👀</Button>
-                    <Button variant="success" onClick={() => handleAddToCart(pizza)}>Añadir 🛒</Button>
+                    <Button variant="primary" onClick={() => handleVerMasClick(ropa.id)}>Ver más 👀</Button>
+                    <Button variant="success" onClick={() => handleAddToCart(ropa)}>Añadir 🛒</Button>
                   </div>
                 </Card.Footer>
               </Card>

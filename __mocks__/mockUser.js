@@ -1,9 +1,7 @@
-// mockUser.js
 const mockUser = {
-    email: 'nacho@gmail.com',
-    password: '123',
-    // Agrega cualquier otra información relevante
-  };
-  
-  export default mockUser;
-  
+  email: 'nacho@gmail.com',
+  password: 'hola123',
+  // Otros datos del usuario
+};
+
+export default mockUser;

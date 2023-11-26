@@ -8,6 +8,7 @@ import Carrito from "./views/Carrito";
 import MyContext from "./contexts/MyContext";
 import NotFound from "./views/NotFound";
 import Login from './views/Login';
+import Tienda from "./views/Tienda";
 
 function App() {
   const [data, setData] = useState([]);
@@ -47,6 +48,7 @@ function App() {
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/ropa/:id" element={<Ropa />} />
           <Route path="/iniciar-sesion" element={<Login />} />
+          <Route path="/tienda" element={<Tienda />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
