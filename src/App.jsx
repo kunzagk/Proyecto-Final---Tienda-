@@ -10,6 +10,7 @@ import NotFound from "./views/NotFound";
 import Login from './views/Login';
 import Tienda from "./views/Tienda";
 import Registrarte from './views/Registrarte';
+import Perfil from './views/Perfil';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
   const [carrito, setCarrito] = useState([]);
   const [totalPedido, setTotalPedido] = useState(0);
   const ropaJson = "/ropa.json";
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userDetails, setUserDetails] = useState(null);
+
 
   const getData = async (url) => {
     try {
@@ -38,7 +42,11 @@ function App() {
     carrito,
     setCarrito,
     totalPedido,
-    setTotalPedido
+    setTotalPedido,
+    isAuthenticated,
+    setIsAuthenticated,
+    userDetails,
+    setUserDetails,
   };
 
   return (
@@ -52,6 +60,7 @@ function App() {
           <Route path="/iniciar-sesion" element={<Login />} />
           <Route path="/tienda" element={<Tienda />} />
           <Route path="/registrarte" element={<Registrarte />} />
+          <Route path="/perfil" element={<Perfil />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

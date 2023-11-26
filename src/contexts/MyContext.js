@@ -7,6 +7,11 @@ const MyContext = createContext({
   setCarrito: () => {},
   totalPedido: 0,
   setTotalPedido: () => {},
+  isAuthenticated: false,
+  setIsAuthenticated: () => {},
+  userDetails: null,
+  setUserDetails: () => {},
 });
+
 
 export default MyContext;
