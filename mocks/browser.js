@@ -1,4 +1,4 @@
 import { setupWorker } from 'msw/browser';
-import { handlers } from './handlers'; // Asegúrate de que la ruta a tus manejadores es correcta
+import { handlers } from './handlers';
 
 export const worker = setupWorker(...handlers);

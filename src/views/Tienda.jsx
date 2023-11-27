@@ -33,8 +33,18 @@ function Tienda() {
         <Row className="justify-content-center">
           {data.map((ropa) => (
             <Col key={ropa.id} xs="12" sm="6" md="4" lg="3" className="mb-4">
-              <Card style={{ width: "100%" }}>
-                <Card.Img variant="top" src={ropa.img} alt={ropa.name} />
+              <Card className="h-100">
+                <Card.Img 
+                  variant="top" 
+                  src={ropa.img} 
+                  alt={ropa.name} 
+                  style={{ 
+                    height: '200px', 
+                    objectFit: 'contain', 
+                    width: '100%', 
+                    padding: '10px' 
+                  }} 
+                />
                 <Card.Body>
                   <h4 className="text-capitalize text-center">{ropa.name}</h4>
                   <h5>Ingredientes:</h5>
