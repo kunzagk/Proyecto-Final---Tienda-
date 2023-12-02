@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import MyContext from '../contexts/MyContext';
 import Header from '../components/Header';
 
@@ -24,7 +24,7 @@ function Registrarte() {
   return (
     <>
       <Header />
-      <div className='d-flex justify-content-center align-items-center' style={{ minHeight: '100vh' }}>
+      <div className='d-flex justify-content-center align-items-center'>
         <div className='col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9'>
           <div className='card shadow-lg'>
             <div className='card-body p-5'>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Container, ListGroup, Button } from "react-bootstrap";
 import MyContext from "../contexts/MyContext";
 import Header from "../components/Header";
@@ -7,26 +7,21 @@ import Header from "../components/Header";
 function Carrito() {
   const { carrito, setCarrito } = useContext(MyContext);
 
-  const handleRemoveItem = (id) => {
-    const updatedCarrito = carrito.filter((pizza) => pizza.id !== id);
-    setCarrito(updatedCarrito);
-  };
-
   const handleIncrement = (id) => {
-    const updatedCarrito = carrito.map((pizza) =>
-      pizza.id === id ? { ...pizza, cantidad: pizza.cantidad + 1 } : pizza
+    const updatedCarrito = carrito.map((ropa) =>
+      ropa.id === id ? { ...ropa, cantidad: ropa.cantidad + 1 } : ropa
     );
     setCarrito(updatedCarrito);
   };
 
   const handleDecrement = (id) => {
-    const updatedCarrito = carrito.map((pizza) =>
-      pizza.id === id ? { ...pizza, cantidad: pizza.cantidad - 1 } : pizza
+    const updatedCarrito = carrito.map((ropa) =>
+      ropa.id === id ? { ...ropa, cantidad: ropa.cantidad - 1 } : ropa
     );
-    setCarrito(updatedCarrito.filter((pizza) => pizza.cantidad > 0));
+    setCarrito(updatedCarrito.filter((ropa) => ropa.cantidad > 0));
   };
 
-  const totalPedido = carrito.reduce((total, pizza) => total + pizza.price * pizza.cantidad, 0);
+  const totalPedido = carrito.reduce((total, ropa) => total + ropa.price * ropa.cantidad, 0);
 
   return (
     <>
@@ -38,22 +33,22 @@ function Carrito() {
         ) : (
           <>
             <ListGroup>
-              {carrito.map((pizza) => (
-                <ListGroup.Item key={pizza.id} className="d-flex align-items-center justify-content-between">
+              {carrito.map((ropa) => (
+                <ListGroup.Item key={ropa.id} className="d-flex align-items-center justify-content-between">
                   <div className="d-flex align-items-center">
-                    <img src={pizza.img} alt={pizza.name} style={{ width: "100px", marginRight: "10px" }} />
+                    <img src={ropa.img} alt={ropa.name} style={{ width: "100px", marginRight: "10px" }} />
                     <div>
-                      <h4 className="text-capitalize ">{pizza.name}</h4>
-                      <p className="text-success">${pizza.price * pizza.cantidad}</p>
+                      <h4 className="text-capitalize ">{ropa.name}</h4>
+                      <p className="text-success">${ropa.price * ropa.cantidad}</p>
                     </div>
                   </div>
                   <div>
                     <div className="d-flex align-items-center">
-                      <Button variant="danger" className="me-1" onClick={() => handleDecrement(pizza.id)}>
+                      <Button variant="danger" className="me-1" onClick={() => handleDecrement(ropa.id)}>
                         -
                       </Button>
-                      <p className="m-0">Cantidad: {pizza.cantidad}</p>
-                      <Button variant="primary" className="ms-2" onClick={() => handleIncrement(pizza.id)}>
+                      <p className="m-0">Cantidad: {ropa.cantidad}</p>
+                      <Button variant="primary" className="ms-2" onClick={() => handleIncrement(ropa.id)}>
                         +
                       </Button>
                     </div>

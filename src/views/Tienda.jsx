@@ -34,27 +34,15 @@ function Tienda() {
           {data.map((ropa) => (
             <Col key={ropa.id} xs="12" sm="6" md="4" lg="3" className="mb-4">
               <Card className="h-100">
-                <Card.Img 
-                  variant="top" 
-                  src={ropa.img} 
-                  alt={ropa.name} 
-                  style={{ 
-                    height: '200px', 
-                    objectFit: 'contain', 
-                    width: '100%', 
-                    padding: '10px' 
-                  }} 
-                />
+                <Card.Img variant="top" src={ropa.img} alt={ropa.name} className ="card-style-shop"/>
                 <Card.Body>
                   <h4 className="text-capitalize text-center">{ropa.name}</h4>
                   <h5>Ingredientes:</h5>
-                  <Card.Text>
-                    <ul className="list-unstyled text-align">
-                      {ropa.ingredients.map((ingredient) => (
-                        <li key={ingredient}>👕{ingredient}</li>
-                      ))}
-                    </ul>
-                  </Card.Text>
+                  <ul className="list-unstyled text-align">
+                    {ropa.ingredients.map((ingredient) => (
+                      <li key={ingredient}>👕{ingredient}</li>
+                    ))}
+                  </ul>
                 </Card.Body>
                 <Card.Footer>
                   <h4 className="text-center mb-3">Precio: ${ropa.price}</h4>

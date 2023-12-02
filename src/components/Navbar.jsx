@@ -8,7 +8,7 @@ function Navigation() {
   const isActiveLink = ({ isActive }) => {
     const styleActive = "text-decoration-none me-3";
     return isActive
-      ? `text-white fw-bold ${styleActive}`
+      ? `text-danger fw-bold ${styleActive}`
       : `text-white ${styleActive}`;
   };
 
@@ -25,7 +25,7 @@ function Navigation() {
             {!isAuthenticated && (
               <>
                 <NavLink to="/registrarte" className={isActiveLink}>Registrarte</NavLink>
-                <NavLink to="/iniciar-sesion" className={isActiveLink}>Iniciar Sesión</NavLink>
+                <NavLink to="/login" className={isActiveLink}>Iniciar Sesión</NavLink>
               </>
             )}
             {isAuthenticated && (

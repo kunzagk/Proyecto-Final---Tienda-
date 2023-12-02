@@ -57,7 +57,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/ropa/:id" element={<Ropa />} />
-          <Route path="/iniciar-sesion" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/tienda" element={<Tienda />} />
           <Route path="/registrarte" element={<Registrarte />} />
           <Route path="/perfil" element={<Perfil />} />
