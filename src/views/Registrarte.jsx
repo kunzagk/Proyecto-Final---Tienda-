@@ -9,16 +9,43 @@ function Registrarte() {
   const [fechaNacimiento, setFechaNacimiento] = useState('');
   const { setData } = useContext(MyContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Insertar aqui lógica para trabajar con el backend (HITO 3)
-    console.log({ nombre, username, password, fechaNacimiento });
-    setData((prevData) => [...prevData, { nombre, username, password, fechaNacimiento }]);
-    alert('Registro exitoso!');
-    setNombre('');
-    setUsername('');
-    setPassword('');
-    setFechaNacimiento('');
+
+    const usuario = {
+      nombre,
+      username,
+      password,
+      fechaNacimiento,
+    };
+
+    try {
+      const response = await fetch('/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(usuario),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Registro exitoso!');
+        setNombre('');
+        setUsername('');
+        setPassword('');
+        setFechaNacimiento('');
+        // Opcionalmente, actualizar el contexto o realizar otras acciones
+        setData((prevData) => [...prevData, usuario]);
+      } else {
+        // Manejar errores del servidor
+        alert(data.error || 'Error al registrarse.');
+      }
+    } catch (error) {
+      console.error('Error al registrar el usuario:', error);
+      alert('Error al procesar el registro.');
+    }
   };
 
   return (
@@ -85,7 +112,7 @@ function Registrarte() {
           </div>
         </div>
       </div>
-      </>
+    </>
   );
 }
 
