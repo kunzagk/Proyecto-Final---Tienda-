@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PublicRoute, PrivateRoute } from './routes';
 import Navigation from "./components/Navbar";
 import Home from "./views/Home";
 import Ropa from "../src/views/ropa";
@@ -20,6 +21,11 @@ function App() {
   const ropaJson = "/ropa.json";
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    serUserDetails(null);
+  }
 
 
   const getData = async (url) => {
@@ -47,6 +53,7 @@ function App() {
     setIsAuthenticated,
     userDetails,
     setUserDetails,
+    logout,
   };
 
   return (
@@ -54,13 +61,13 @@ function App() {
       <BrowserRouter>
         <Navigation />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/ropa/:id" element={<Ropa />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/ropa" element={<Tienda />} />
-          <Route path="/registrarte" element={<Registrarte />} />
-          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/" element={<PublicRoute><Home /></PublicRoute>}/>
+          <Route path="/carrito" element={<PrivateRoute><Carrito /></PrivateRoute>}/>
+          <Route path="/ropa/:id" element={<PublicRoute><Ropa /></PublicRoute>} />
+          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/ropa" element={<PublicRoute><Tienda /></PublicRoute>} />
+          <Route path="/registrarte" element={<PublicRoute><Registrarte /></PublicRoute>} />
+          <Route path="/perfil" element={<PrivateRoute><Perfil /></PrivateRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

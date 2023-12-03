@@ -29,3 +29,12 @@
     width: 100%;
     padding: 10px;
   }
+
+.navbarStyle {
+  background-color: #000000;
+}
+
+.logoutStyle {
+  color: yellow;
+  text-decoration: none;
+}
