@@ -24,6 +24,7 @@ function Tienda() {
     } else {
       setCarrito((prevCarrito) => [...prevCarrito, { ...ropa, cantidad: 1 }]);
     }
+    window.alert("Producto añadido al carrito");
   };
 
   return (

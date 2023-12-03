@@ -32,7 +32,7 @@ function Navigation() {
               <NavLink to="/perfil" className={isActiveLink}>Perfil</NavLink>
             )}
             <NavLink to="/carrito" className={isActiveLink}>Carrito</NavLink>
-            <NavLink to="/tienda" className={isActiveLink}>Tienda</NavLink>
+            <NavLink to="/ropa" className={isActiveLink}>Tienda</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
