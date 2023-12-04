@@ -1,6 +1,7 @@
-
-import mockUsers from './mockUsers'
+import mockUsers from './mockUsers';
+import mockProductsHandlers from './mockProducts';
 
 export const handlers = [
- ...mockUsers
-]
+  ...mockUsers,
+  ...mockProductsHandlers
+];

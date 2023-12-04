@@ -13,24 +13,22 @@ import Tienda from "./views/Tienda";
 import Registrarte from './views/Registrarte';
 import Perfil from './views/Perfil';
 
-
 function App() {
   const [data, setData] = useState([]);
   const [carrito, setCarrito] = useState([]);
   const [totalPedido, setTotalPedido] = useState(0);
-  const ropaJson = "/ropa.json";
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
 
   const logout = () => {
     setIsAuthenticated(false);
-    serUserDetails(null);
+    setUserDetails(null);
   }
 
-
-  const getData = async (url) => {
+  // Cambiado para apuntar a la ruta mockeada
+  const getData = async () => {
     try {
-      const response = await fetch(url);
+      const response = await fetch('/ropa');
       const data = await response.json();
       setData(data);
     } catch (error) {
@@ -39,7 +37,7 @@ function App() {
   };
 
   useEffect(() => {
-    getData(ropaJson);
+    getData();
   }, []);
 
   const allState = {
